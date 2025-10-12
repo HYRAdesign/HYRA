@@ -33,30 +33,20 @@
             font-family: 'Poppins', sans-serif; 
             @apply font-black text-gray-900; /* Verwendung von 'black' (900) für maximale Wirkung */
         }
-        /* Abstände für Sektionen - Für bessere Mobile-Performance: */
+        /* Abstände für Sektionen - Sehr große vertikale Abstände, die den weißen Body-Hintergrund für die Trennung freigeben */
         section {
-            /* Innen-Padding angepasst für mehr Fülle: py-24 (6rem) auf Mobile, py-32 (8rem) auf Desktop */
-            /* Wenn keine expliziten Klassen in der Sektion gesetzt sind, gelten diese Werte */
-            @apply py-24 md:py-28 lg:py-32 px-4 md:px-12 lg:px-20; 
+            @apply py-32 px-4 md:px-12 lg:px-20; 
         }
         /* Spezieller Stil für Inhalts-Sektionen, um sie als "Blöcke" darzustellen */
         .content-block {
-            /* Vertikaler Abstand ZWISCHEN den Blöcken auf 6rem (mt-24) */
-            /* HINTERGRUND WIEDER AUF HELLGRAU gesetzt, damit der weiße Trennbalken sichtbar wird */
-            @apply bg-gray-50 shadow-xl rounded-2xl mt-24;
+            @apply bg-gray-50 shadow-xl rounded-2xl;
         }
         
-        /* Besonderer Stil für Hero-Sektion mit subtlem Gradienten und abgerundeten Ecken (wird jetzt auch für Kontakt verwendet) */
+        /* Besonderer Stil für Hero-Sektion mit subtlem Gradienten und abgerundeten Ecken */
         .hero-block {
             /* Subtiler blauer bis violetter Hintergrundgradient, der die Indigo-Farbe aufnimmt */
             background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
-            /* Vertikaler Abstand ZWISCHEN den Blöcken auf 6rem (mt-24) */
-            @apply shadow-xl rounded-2xl mt-24;
-        }
-
-        /* Nur für die erste Sektion (Hero) wird der obere Abstand entfernt */
-        #home.hero-block {
-            @apply mt-0;
+            @apply shadow-xl rounded-2xl;
         }
 
         /* Animation für Überschriften, um die Seite dynamischer erscheinen zu lassen */
@@ -106,9 +96,9 @@
     </div>
 
     <!-- Hero Section (Content Block 1) - Mit Gradient und Animation -->
-    <section id="home" class="hero-block text-center pt-28 pb-32 md:pt-36 md:pb-40"> <!-- Manuelle Paddings für den großen Hero-Effekt -->
+    <section id="home" class="hero-block text-center pt-32 pb-40">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl md:text-8xl mb-6 leading-tight max-w-5xl mx-auto animate-title">
+            <h1 class="text-6xl md:text-8xl mb-6 leading-tight max-w-5xl mx-auto animate-title">
                 Deine lokale Bühne. <br class="hidden md:inline">
                 <span class="text-indigo-700">Schnell. Günstig. Online.</span>
             </h1>
@@ -116,19 +106,18 @@
                 Wir bauen maßgeschneiderte, moderne Websites für Friseure, kleine Läden und lokale Businesses – ohne Kompromisse bei Design oder Geschwindigkeit.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-                <!-- Buttons werden auf Handy gestapelt (flex-col) und auf sm: hochkant (sm:flex-row) -->
-                <a href="#contact" class="btn-cta w-full sm:w-auto">Jetzt unverbindlich anfragen</a>
-                <a href="#services" class="btn-secondary w-full sm:w-auto">Unsere Vorteile entdecken</a>
+                <a href="#contact" class="btn-cta">Jetzt unverbindlich anfragen</a>
+                <a href="#services" class="btn-secondary">Unsere Vorteile entdecken</a>
             </div>
         </div>
     </section>
 
     <!-- Wer ist HYRA? (About) Section - (Content Block 2) -->
-    <!-- Explizites py-32 (8rem) für mehr vertikalen Innenabstand auch auf Mobile -->
-    <section id="about" class="content-block py-32">
+    <!-- MT-12 sorgt für den WEISSEN Trennbalken (Body-Hintergrund) -->
+    <section id="about" class="content-block mt-12">
         <div class="container mx-auto px-4 max-w-4xl">
             <h2 class="text-3xl md:text-5xl mb-12 text-center">👋 Wer ist HYRA? Unsere Philosophie.</h2>
-            <!-- Hinzufügen von text-center, um die Absätze mittig auszurichten -->
+            <!-- Hinzugefügt: text-center, um den Text mittig auszurichten -->
             <div class="text-xl leading-relaxed space-y-8 text-gray-700 text-center">
                 <p>
                     HYRA ist Ihr Spezialist für modernes Webdesign aus <span class="font-bold text-gray-900">Hürth</span>. Gegründet von Malte, liegt unsere Mission darin, lokale Unternehmen – genau wie Ihres – mit einer beeindruckenden Online-Präsenz auszustatten.
@@ -144,10 +133,10 @@
     </section>
 
     <!-- Was ich mache (Value Proposition) Section (Content Block 3) -->
-    <section id="services" class="content-block">
+    <!-- MT-12 sorgt für den WEISSEN Trennbalken (Body-Hintergrund) -->
+    <section id="services" class="content-block mt-12">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl md:text-5xl mb-16">Ihre unschlagbaren Vorteile mit HYRA Webdesign</h2>
-            <!-- Das Grid wird auf Handy zu einer Spalte (grid-cols-1) und skaliert dann hoch -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
                 <!-- Vorteil 1: Custom Design -->
@@ -189,19 +178,18 @@
         </div>
     </section>
 
-    <!-- Call-to-Action / Kontakt Section (Content Block 4) - JETZT BLAU! -->
-    <!-- Erhöhter vertikaler Innenabstand (py-36 = 9rem) für mehr Luft um den Call-to-Action. -->
-    <section id="contact" class="hero-block py-36">
+    <!-- Call-to-Action / Kontakt Section (Content Block 4) -->
+    <!-- MT-12 sorgt für den WEISSEN Trennbalken (Body-Hintergrund) -->
+    <section id="contact" class="content-block mt-12">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl mb-12 text-indigo-800">Jetzt Ihr lokales Business online bringen.</h2>
-            <p class="text-xl mb-14 max-w-2xl mx-auto text-indigo-700 font-semibold">
+            <h2 class="text-3xl md:text-5xl mb-12">Jetzt Ihr lokales Business online bringen.</h2>
+            <p class="text-xl mb-14 max-w-2xl mx-auto text-gray-700">
                 Lassen Sie uns unverbindlich über Ihr Projekt sprechen. Schreiben Sie uns, und wir legen sofort los.
             </p>
             <div class="max-w-xl mx-auto bg-white p-8 md:p-10 rounded-2xl shadow-3xl border border-indigo-100 text-gray-800">
                 <form action="#" method="POST" class="space-y-6 text-left">
                     <div>
                         <label for="name" class="block text-sm font-semibold text-gray-700">Ihr Name / Name Ihres Business</label>
-                        <!-- Inputfelder sind standardmäßig w-full und mobilfreundlich -->
                         <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-inner focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ihr Friseursalon, Ihr Laden, ..." required>
                     </div>
                     <div>
@@ -212,18 +200,18 @@
                         <label for="message" class="block text-sm font-semibold text-gray-700">Ihr Vorhaben (Kurzinfo)</label>
                         <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-inner focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ich brauche eine Website für meinen neuen Blumenladen in Hürth." required></textarea>
                     </div>
-                    <!-- CTA-Button im Formular ist w-full für einfache Bedienung auf dem Handy -->
+                    <!-- Dies ist der gewünschte Kontakt-Button -->
                     <button type="submit" class="w-full btn-cta">Nachricht an HYRA senden</button>
                 </form>
             </div>
-            <p class="mt-8 text-sm text-gray-600">
-                Oder schreiben Sie uns direkt: <a href="mailto:maltenow2@gmail.com" class="underline hover:text-indigo-700 transition duration-300 font-semibold">maltenow2@gmail.com</a>
+            <p class="mt-8 text-sm text-gray-500">
+                Oder schreiben Sie uns direkt: <a href="mailto:maltenow2@gmail.com" class="underline hover:text-indigo-600 transition duration-300 font-semibold">maltenow2@gmail.com</a>
             </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-10 px-4 mt-24"> <!-- Abstand des Footers ist mobilfreundlich -->
+    <footer class="bg-gray-800 text-white py-10 px-4 mt-12"> <!-- Auch hier etwas Abstand zum Block darüber -->
         <div class="container mx-auto text-center md:flex md:justify-between md:items-center">
             <p class="mb-4 md:mb-0 text-sm">&copy; 2025 HYRA Webdesign. Malte, Webdesigner aus Hürth.</p>
             <ul class="flex justify-center space-x-6 text-sm">
