@@ -18,7 +18,7 @@
         /* Haupt-CTA-Button Stil */
         .btn-cta {
             @apply inline-block px-12 py-4 bg-indigo-600 text-white text-xl font-extrabold rounded-xl shadow-2xl shadow-indigo-500/50
-                   transform hover:scale-[1.03] hover:hover:bg-indigo-700
+                   transform hover:scale-[1.03] hover:bg-indigo-700
                    transition-all duration-300 ease-in-out
                    focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-70;
         }
@@ -72,10 +72,10 @@
         </ul>
     </div>
 
-    <!-- Hero Section (Content Block 1) - Jetzt full-width und hellblau -->
+    <!-- Hero Section (Content Block 1) - Full-width und hellblau -->
     <section id="home" class="text-center bg-indigo-50 py-32 md:py-40">
         <div class="container mx-auto px-4">
-            <!-- H1 wurde vergrößert: text-7xl auf Mobile, text-9xl auf Desktop -->
+            <!-- H1 ist jetzt sehr groß: text-7xl auf Mobile, text-9xl auf Desktop -->
             <h1 class="text-7xl md:text-9xl mb-6 leading-tight max-w-5xl mx-auto">
                 Digital. <br class="hidden md:inline">
                 <span class="text-indigo-600">Erfolgreich.</span>
@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <!-- Wer ist HYRA? (About) Section - Hellgrau, full-width, großer vertikaler Abstand -->
+    <!-- Wer ist HYRA? (About) Section - Hellgrau, full-width, großer vertikaler Abstand, zentrierter Text -->
     <section id="about" class="bg-gray-100 mt-12 py-40">
         <div class="container mx-auto px-4 max-w-4xl">
             <h2 class="text-3xl md:text-5xl mb-12 text-center">👋 Wer ist HYRA? Unsere Philosophie.</h2>
@@ -221,4 +221,5 @@
 
 </body>
 </html>
+
 
