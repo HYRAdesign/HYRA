@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HYRA Webdesign</title> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>HYRA Webdesign – Ihr Partner für moderne Websites in Hürth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
         /* Farbschema und Variablen */
@@ -91,7 +92,6 @@
             color: var(--primary-color);
             letter-spacing: -2px;
         }
-        /* Das ist der stilisierte, hervorgehobene Buchstabe 'H' */
         .logo span {
             color: var(--accent-color); 
             font-size: 1.8rem;
@@ -211,6 +211,7 @@
         }
 
         .text-block p strong {
+            /* Text-Hervorhebung durch strong beibehalten, aber ** entfernt */
             color: var(--primary-color);
         }
 
@@ -325,7 +326,7 @@
 <body>
 
     <header>
-        <div class="logo"><span>H</span></div>
+        <div class="logo"><span>H</span>YRA</div>
         <nav>
             <a href="#ueber-uns">Über uns</a>
             <a href="#leistungen">Leistungen</a>
