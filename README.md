@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HYRA Webdesign - Malte aus Hürth | Minimalistische Websites</title>
+    <title>HYRA Webdesign – Ihr Partner für moderne Websites in Hürth</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -35,7 +35,7 @@
         /* Typografie */
         h1 {
             font-size: 3.5rem;
-            font-weight: 800; /* Extra Fett */
+            font-weight: 800; 
             line-height: 1.1;
             margin-bottom: 0.5em;
         }
@@ -91,7 +91,7 @@
         }
 
         .logo span {
-            color: var(--accent-color); /* Akzentfarbe für den ersten Buchstaben */
+            color: var(--accent-color); 
             font-size: 1.8rem;
         }
 
@@ -129,11 +129,11 @@
             border: none;
         }
         .cta-nav:hover {
-            background-color: #2980B9; /* Dunklerer Ton beim Hover */
+            background-color: #2980B9;
             transform: translateY(-1px);
         }
         .cta-nav:after {
-            content: none; /* Deaktiviert den Underline-Effekt für den Button */
+            content: none;
         }
 
         /* Buttons (CTA) */
@@ -181,7 +181,7 @@
             align-items: center;
             text-align: left;
             background-color: var(--light-gray);
-            padding-top: 150px; /* Mehr Platz oben */
+            padding-top: 150px;
         }
 
         .hero-content {
@@ -201,8 +201,8 @@
         }
 
 
-        /* Über mich Sektion */
-        #ueber-mich h2 {
+        /* Über uns Sektion */
+        #ueber-uns h2 {
             text-align: left;
             margin-bottom: 0.5em;
             font-size: 2.5rem;
@@ -214,35 +214,36 @@
 
         /* Leistungen Sektion (Grid) */
         .services {
-            background-color: var(--background-color); /* Kontrastwechsel aufgehoben für mehr Minimalismus */
+            background-color: var(--background-color); 
             text-align: center;
             border-top: 1px solid var(--light-gray);
         }
         
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Angepasst auf 4 Spalten */
+            gap: 30px;
             margin-top: 50px;
         }
 
         .service-card {
             background-color: var(--light-gray);
-            padding: 40px;
+            padding: 30px; /* Etwas kleiner für 4 Boxen */
             border-radius: 8px;
             text-align: left;
             transition: background-color 0.3s;
+            min-height: 250px; /* Gleiche Höhe für alle Karten */
         }
 
         .service-card:hover {
-            background-color: #EAECEF; /* Leichter Hover-Effekt */
+            background-color: #EAECEF;
         }
 
         /* CTA Sektion (Kontakt) */
         .cta-section {
             text-align: center;
             padding: 120px 5%;
-            background-color: var(--primary-color); /* Dunkler Hintergrund */
+            background-color: var(--primary-color);
             color: white;
         }
 
@@ -302,8 +303,11 @@
             .cta-nav {
                 margin-left: 10px;
             }
-            #ueber-mich h2 {
+            #ueber-uns h2 {
                 text-align: center;
+            }
+            .service-card {
+                min-height: auto; /* Auf Mobilgeräten Höhe automatisch anpassen */
             }
         }
     </style>
@@ -313,55 +317,64 @@
     <header>
         <div class="logo"><span>H</span>YRA</div>
         <nav>
-            <a href="#ueber-mich">Über mich</a>
+            <a href="#ueber-uns">Über uns</a>
             <a href="#leistungen">Leistungen</a>
-            <a href="#kontakt" class="cta-nav">Jetzt starten</a>
+            <a href="#kontakt" class="cta-nav">Projekt starten</a>
         </nav>
     </header>
 
     <section id="hero" class="hero">
         <div class="hero-content">
-            <h1>Dein Business. Deine Website.</h1>
-            <h2>Super Custom Webdesign von Malte aus Hürth. Extrem schnell. Extrem günstig.</h2>
-            <p>Wir bauen minimalistische und moderne Websites, die lokale Unternehmen wie Friseure, kleine Läden und Dienstleister digital sichtbar machen.</p>
-            <a href="#kontakt" class="button primary-cta large">Kostenlose Beratung anfragen</a>
+            <h1>Lokale Präsenz. Digitale Stärke.</h1>
+            <h2>Die Webdesign-Agentur für lokale Businesses in Hürth. Extrem schnell und budgetfreundlich.</h2>
+            <p>HYRA liefert minimalistische und moderne Websites, die speziell für Friseure, kleine Läden und Dienstleister entwickelt wurden, um sofort mehr Kunden zu gewinnen.</p>
+            <a href="#kontakt" class="button primary-cta large">Kostenlose Erstberatung</a>
         </div>
     </section>
 
-    <section id="ueber-mich" class="content-section">
-        <h2>Malte. Dein Webdesigner.</h2>
+    <section id="ueber-uns" class="content-section">
+        <h2>HYRA. Ihr lokaler Webdesign-Partner.</h2>
         <div class="text-block">
-            <p><strong>Hi, ich bin Malte</strong>, der Kopf hinter **HYRA** in Hürth. Ich habe HYRA gegründet, weil ich gesehen habe, wie schwer es lokale Geschäfte haben, online präsent zu sein – oft zu teuer und zu kompliziert.</p>
-            <p>Meine Mission ist es, den Aufbau einer professionellen Website so einfach, schnell und günstig wie möglich zu gestalten. Du erhältst ein individuelles Design, das perfekt zu Deiner Marke passt. Schluss mit Standard-Templates, hallo Custom Design!</p>
+            <p>Wir sind **HYRA Webdesign** aus Hürth. Unser Fokus liegt darauf, lokalen Unternehmen den Einstieg in die digitale Welt zu erleichtern – professionell, ohne unnötige Komplexität und zu fairen Konditionen.</p>
+            <p>Wir verstehen die Bedürfnisse von Friseuren, Bäckern und kleinen Dienstleistern. Bei uns erhalten Sie nicht nur eine Website, sondern eine **maßgeschneiderte digitale Visitenkarte**, die Besucher überzeugt und in zahlende Kunden verwandelt. Ihr Erfolg ist unser Maßstab.</p>
         </div>
     </section>
 
     <section id="leistungen" class="content-section services">
-        <h2>Was HYRA Dir bietet.</h2>
+        <h2>Was HYRA Ihnen garantiert.</h2>
         <div class="service-grid">
+            
             <div class="service-card">
                 <h3>Super Custom Design</h3>
-                <p>Jede Website wird von Grund auf neu entwickelt – **minimalistisch, modern** und 100% auf Deine Zielgruppe zugeschnitten. Keine Kompromisse.</p>
+                <p>Keine Templates. Wir entwickeln jede Website von Grund auf neu – **minimalistisch, modern** und perfekt auf Ihre lokale Marke abgestimmt.</p>
             </div>
+            
             <div class="service-card">
                 <h3>Kostenloses Hosting (1. Jahr)</h3>
-                <p>Volle Leistung ohne Mehrkosten. Wir bieten Dir das **Hosting im ersten Jahr kostenlos** an, damit Du Dich voll auf Dein Business konzentrieren kannst.</p>
+                <p>Volle Leistung ohne Mehrkosten. Wir übernehmen das **Hosting im ersten Jahr kostenlos**, damit Ihr Start budgetfreundlich ist.</p>
             </div>
+            
             <div class="service-card">
                 <h3>Extrem schnell & günstig</h3>
-                <p>Dank optimierter Prozesse und lokaler Nähe ist Deine professionelle Website oft **in wenigen Tagen online**. Qualität muss nicht teuer sein.</p>
+                <p>Dank effizienter Prozesse ist Ihre professionelle Website **in wenigen Tagen online**. Qualität muss kein Vermögen kosten.</p>
             </div>
+
+            <div class="service-card">
+                <h3>Mobile First & SEO</h3>
+                <p>Jede HYRA-Website ist auf **allen Geräten perfekt** (Smartphone, Tablet). Zudem optimieren wir sie für lokale Suchanfragen (SEO), damit Sie in Hürth gefunden werden.</p>
+            </div>
+
         </div>
     </section>
 
     <section id="kontakt" class="cta-section">
-        <h2>Lass uns Dein Projekt starten.</h2>
-        <p>Kontaktiere uns unverbindlich. Erzähl uns von Deinem Business in Hürth und Umgebung, und wir zeigen Dir, wie HYRA Dir helfen kann.</p>
-        <a href="mailto:DEINE@EMAILADRESSE.DE?subject=Anfrage%20Website%20HYRA%20Webdesign" class="button primary-cta large">Malte (HYRA) kontaktieren</a>
+        <h2>Starten Sie jetzt Ihre Sichtbarkeit.</h2>
+        <p>Kontaktiere Sie uns unverbindlich. Wir freuen uns darauf, Ihr lokales Geschäft digital zu stärken!</p>
+        <a href="mailto:DEINE@EMAILADRESSE.DE?subject=Anfrage%20Website%20HYRA%20Webdesign" class="button primary-cta large">Kontakt zu HYRA aufnehmen</a>
     </section>
 
     <footer>
-        <p>&copy; 2025 HYRA Webdesign | Malte aus Hürth.</p>
+        <p>&copy; 2025 HYRA Webdesign | Ihr Partner in Hürth.</p>
         <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
     </footer>
 
