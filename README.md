@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,7 @@
             --light-gray: #F4F6F8; /* Sehr helles Grau */
             --background-color: #ffffff;
             --font-family: 'Inter', sans-serif;
+            --glow-color: rgba(52, 152, 219, 0.4); /* Leuchtendes Blau, leicht transparent */
         }
 
         /* Basis-Styling und Resets */
@@ -89,9 +90,8 @@
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--primary-color);
-            letter-spacing: -2px; /* Schmaler, moderner Look */
+            letter-spacing: -2px;
         }
-        /* Das ist der stilisierte, hervorgehobene Buchstabe 'H' */
         .logo span {
             color: var(--accent-color); 
             font-size: 1.8rem;
@@ -221,10 +221,10 @@
             border-top: 1px solid var(--light-gray);
         }
         
-        /* Angepasst auf 3 Spalten */
+        /* Wichtig: 3 Spalten nebeneinander */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            grid-template-columns: repeat(3, 1fr); 
             gap: 40px;
             margin-top: 50px;
         }
@@ -234,12 +234,15 @@
             padding: 40px; 
             border-radius: 8px;
             text-align: left;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.3s; /* box-shadow für den Glow */
             min-height: 250px; 
         }
 
+        /* GLOW-EFFEKT HIER */
         .service-card:hover {
             background-color: #EAECEF;
+            /* Subtiler blauer Glow-Effekt */
+            box-shadow: 0 0 15px var(--glow-color); 
         }
 
         /* CTA Sektion (Kontakt) */
@@ -281,6 +284,12 @@
         }
 
         /* Responsivität */
+        @media (max-width: 992px) {
+            /* Ab jetzt auf 992px umschalten */
+            .service-grid {
+                grid-template-columns: 1fr; /* Nur eine Spalte auf kleineren Bildschirmen */
+            }
+        }
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
@@ -308,9 +317,6 @@
             }
             #ueber-uns h2 {
                 text-align: center;
-            }
-            .service-grid {
-                grid-template-columns: 1fr; /* Eine Spalte auf Mobile */
             }
             .service-card {
                 min-height: auto;
