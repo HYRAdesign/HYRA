@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HYRA Webdesign - Dein lokaler Experte aus Hürth</title>
-    <!-- Lade Google Font: Inter (Body) und Poppins (Headings) für eine moderne und klare Optik -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@600;800;900&display=swap" rel="stylesheet">
+    <!-- Lade Google Font: Inter für eine minimalistische und moderne Optik -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Lade Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -18,7 +18,7 @@
         /* Haupt-CTA-Button Stil - Etwas größer und mit sauberem Schatten */
         .btn-cta {
             @apply inline-block px-12 py-4 bg-indigo-600 text-white text-xl font-extrabold rounded-xl shadow-2xl shadow-indigo-500/50
-                   transform hover:scale-[1.05] hover:bg-indigo-700 /* Erhöhte Hover-Skala für mehr Dynamik */
+                   transform hover:scale-[1.03] hover:bg-indigo-700
                    transition-all duration-300 ease-in-out
                    focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-70;
         }
@@ -28,9 +28,8 @@
                    transform hover:bg-indigo-50 hover:shadow-xl hover:border-indigo-400
                    transition-all duration-300 ease-in-out;
         }
-        /* Stil für Überschriften: NEUE SCHRIFTART Poppins, sehr fett */
+        /* Stil für Überschriften */
         h1, h2, h3 {
-            font-family: 'Poppins', sans-serif; 
             @apply font-black text-gray-900; /* Verwendung von 'black' (900) für maximale Wirkung */
         }
         /* Abstände für Sektionen - Sehr große vertikale Abstände, die den weißen Body-Hintergrund für die Trennung freigeben */
@@ -41,24 +40,6 @@
         .content-block {
             @apply bg-gray-50 shadow-xl rounded-2xl;
         }
-        
-        /* Besonderer Stil für Hero-Sektion mit subtlem Gradienten und abgerundeten Ecken */
-        .hero-block {
-            /* Subtiler blauer bis violetter Hintergrundgradient, der die Indigo-Farbe aufnimmt */
-            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
-            @apply shadow-xl rounded-2xl;
-        }
-
-        /* Animation für Überschriften, um die Seite dynamischer erscheinen zu lassen */
-        @keyframes slideInFromTop {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-title {
-            animation: slideInFromTop 0.8s ease-out forwards;
-            opacity: 0; /* Versteckt am Anfang */
-        }
-        
     </style>
 </head>
 <body>
@@ -95,15 +76,17 @@
         </ul>
     </div>
 
-    <!-- Hero Section (Content Block 1) - Mit Gradient und Animation -->
-    <section id="home" class="hero-block text-center pt-32 pb-40">
+    <!-- Hero Section (Content Block 1) -->
+    <!-- bg-indigo-50: HINZUGEFÜGT für hellblauen Hintergrund -->
+    <section id="home" class="content-block text-center pt-32 pb-40 bg-indigo-50">
         <div class="container mx-auto px-4">
-            <h1 class="text-6xl md:text-8xl mb-6 leading-tight max-w-5xl mx-auto animate-title">
-                Deine lokale Bühne. <br class="hidden md:inline">
-                <span class="text-indigo-700">Schnell. Günstig. Online.</span>
+            <!-- H1 wurde auf zwei Schlagworte gekürzt -->
+            <h1 class="text-6xl md:text-8xl mb-6 leading-tight max-w-5xl mx-auto">
+                Digital. <br class="hidden md:inline">
+                <span class="text-indigo-600">Erfolgreich.</span>
             </h1>
-            <p class="text-xl md:text-3xl mb-12 max-w-3xl mx-auto text-gray-700 font-normal">
-                Wir bauen maßgeschneiderte, moderne Websites für Friseure, kleine Läden und lokale Businesses – ohne Kompromisse bei Design oder Geschwindigkeit.
+            <p class="text-xl md:text-3xl mb-12 max-w-3xl mx-auto text-gray-600 font-normal">
+                Wir bauen maßgeschneiderte, moderne Websites für Ihr Business – ohne Kompromisse bei Design oder Geschwindigkeit.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
                 <a href="#contact" class="btn-cta">Jetzt unverbindlich anfragen</a>
@@ -117,7 +100,6 @@
     <section id="about" class="content-block mt-12">
         <div class="container mx-auto px-4 max-w-4xl">
             <h2 class="text-3xl md:text-5xl mb-12 text-center">👋 Wer ist HYRA? Unsere Philosophie.</h2>
-            <!-- Hinzugefügt: text-center, um den Text mittig auszurichten -->
             <div class="text-xl leading-relaxed space-y-8 text-gray-700 text-center">
                 <p>
                     HYRA ist Ihr Spezialist für modernes Webdesign aus <span class="font-bold text-gray-900">Hürth</span>. Gegründet von Malte, liegt unsere Mission darin, lokale Unternehmen – genau wie Ihres – mit einer beeindruckenden Online-Präsenz auszustatten.
@@ -242,19 +224,9 @@
                 mobileMenu.classList.add('hidden');
             });
         });
-
-        // Verzögerter Start der Animation für die H1-Überschrift, damit sie nach dem Laden sichtbar wird
-        window.addEventListener('load', () => {
-            const h1 = document.querySelector('.animate-title');
-            if (h1) {
-                // Kurze Verzögerung, um den Ladeeffekt zu betonen
-                setTimeout(() => {
-                    h1.style.opacity = '1';
-                }, 100); 
-            }
-        });
     </script>
 
 </body>
 </html>
+
 
