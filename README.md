@@ -376,7 +376,7 @@
     <section id="kontakt" class="cta-section">
         <h2>Starten Sie jetzt Ihre Sichtbarkeit.</h2>
         <p>Kontaktieren Sie uns unverbindlich. Wir freuen uns darauf, Ihr lokales Geschäft digital zu stärken!</p>
-        <a href="mailto:DEINE@EMAILADRESSE.DE?subject=Anfrage%20Website%20HYRA%20Webdesign" class="button primary-cta large">Kontakt zu HYRA aufnehmen</a>
+        <a href="mailto:hymo.inf@gmail.com?subject=Anfrage%20Website%20HYRA%20Webdesign" class="button primary-cta large">Kontakt zu HYRA aufnehmen</a>
     </section>
 
     <footer>
