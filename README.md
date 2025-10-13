@@ -84,12 +84,14 @@
             z-index: 1000;
         }
 
+        /* LOGO-Styling */
         .logo {
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--primary-color);
+            letter-spacing: -2px; /* Schmaler, moderner Look */
         }
-
+        /* Das ist der stilisierte, hervorgehobene Buchstabe 'H' */
         .logo span {
             color: var(--accent-color); 
             font-size: 1.8rem;
@@ -219,20 +221,21 @@
             border-top: 1px solid var(--light-gray);
         }
         
+        /* Angepasst auf 3 Spalten */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Angepasst auf 4 Spalten */
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px;
             margin-top: 50px;
         }
 
         .service-card {
             background-color: var(--light-gray);
-            padding: 30px; /* Etwas kleiner für 4 Boxen */
+            padding: 40px; 
             border-radius: 8px;
             text-align: left;
             transition: background-color 0.3s;
-            min-height: 250px; /* Gleiche Höhe für alle Karten */
+            min-height: 250px; 
         }
 
         .service-card:hover {
@@ -306,8 +309,11 @@
             #ueber-uns h2 {
                 text-align: center;
             }
+            .service-grid {
+                grid-template-columns: 1fr; /* Eine Spalte auf Mobile */
+            }
             .service-card {
-                min-height: auto; /* Auf Mobilgeräten Höhe automatisch anpassen */
+                min-height: auto;
             }
         }
     </style>
@@ -335,8 +341,8 @@
     <section id="ueber-uns" class="content-section">
         <h2>HYRA. Ihr lokaler Webdesign-Partner.</h2>
         <div class="text-block">
-            <p>Wir sind **HYRA Webdesign** aus Hürth. Unser Fokus liegt darauf, lokalen Unternehmen den Einstieg in die digitale Welt zu erleichtern – professionell, ohne unnötige Komplexität und zu fairen Konditionen.</p>
-            <p>Wir verstehen die Bedürfnisse von Friseuren, Bäckern und kleinen Dienstleistern. Bei uns erhalten Sie nicht nur eine Website, sondern eine **maßgeschneiderte digitale Visitenkarte**, die Besucher überzeugt und in zahlende Kunden verwandelt. Ihr Erfolg ist unser Maßstab.</p>
+            <p>Wir von **HYRA Webdesign** aus Hürth haben es uns zur Aufgabe gemacht, lokalen Unternehmen den Einstieg in die digitale Welt so effizient wie möglich zu gestalten – **professionell, unkompliziert und zu fairen Konditionen.**</p>
+            <p>Wir verstehen die Bedürfnisse von lokalen Dienstleistern. Bei uns erhalten Sie nicht nur eine Website, sondern eine **maßgeschneiderte digitale Lösung**, die Ihre Besucher überzeugt und in zahlende Kunden verwandelt. Setzen Sie auf Qualität und Geschwindigkeit.</p>
         </div>
     </section>
 
@@ -346,22 +352,17 @@
             
             <div class="service-card">
                 <h3>Super Custom Design</h3>
-                <p>Keine Templates. Wir entwickeln jede Website von Grund auf neu – **minimalistisch, modern** und perfekt auf Ihre lokale Marke abgestimmt.</p>
+                <p>Keine Templates. Wir entwickeln jede Website von Grund auf neu – **minimalistisch, modern** und 100% auf Ihre lokale Marke abgestimmt. Einzigartig und professionell.</p>
             </div>
             
             <div class="service-card">
                 <h3>Kostenloses Hosting (1. Jahr)</h3>
-                <p>Volle Leistung ohne Mehrkosten. Wir übernehmen das **Hosting im ersten Jahr kostenlos**, damit Ihr Start budgetfreundlich ist.</p>
+                <p>Volle Leistung ohne Mehrkosten. Wir übernehmen das **Hosting im ersten Jahr kostenlos** für Sie. So starten Sie sofort und entlasten Ihr Anfangsbudget.</p>
             </div>
             
             <div class="service-card">
                 <h3>Extrem schnell & günstig</h3>
-                <p>Dank effizienter Prozesse ist Ihre professionelle Website **in wenigen Tagen online**. Qualität muss kein Vermögen kosten.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>Mobile First & SEO</h3>
-                <p>Jede HYRA-Website ist auf **allen Geräten perfekt** (Smartphone, Tablet). Zudem optimieren wir sie für lokale Suchanfragen (SEO), damit Sie in Hürth gefunden werden.</p>
+                <p>Dank unserer optimierten Prozesse ist Ihre professionelle Website **in kürzester Zeit online**. Qualität muss kein Vermögen kosten – wir sind Ihr günstiger Partner.</p>
             </div>
 
         </div>
@@ -369,7 +370,7 @@
 
     <section id="kontakt" class="cta-section">
         <h2>Starten Sie jetzt Ihre Sichtbarkeit.</h2>
-        <p>Kontaktiere Sie uns unverbindlich. Wir freuen uns darauf, Ihr lokales Geschäft digital zu stärken!</p>
+        <p>Kontaktieren Sie uns unverbindlich. Wir freuen uns darauf, Ihr lokales Geschäft digital zu stärken!</p>
         <a href="mailto:DEINE@EMAILADRESSE.DE?subject=Anfrage%20Website%20HYRA%20Webdesign" class="button primary-cta large">Kontakt zu HYRA aufnehmen</a>
     </section>
 
@@ -391,5 +392,3 @@
     </script>
 </body>
 </html>
-
-
