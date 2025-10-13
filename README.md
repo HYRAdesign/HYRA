@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -211,6 +211,7 @@
         }
 
         .text-block p strong {
+            /* Text-Hervorhebung durch strong beibehalten, aber ** entfernt */
             color: var(--primary-color);
         }
 
@@ -221,7 +222,7 @@
             border-top: 1px solid var(--light-gray);
         }
         
-        /* Wichtig: 3 Spalten nebeneinander */
+        /* 3 Spalten nebeneinander */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
@@ -234,14 +235,13 @@
             padding: 40px; 
             border-radius: 8px;
             text-align: left;
-            transition: background-color 0.3s, box-shadow 0.3s; /* box-shadow für den Glow */
+            transition: background-color 0.3s, box-shadow 0.3s;
             min-height: 250px; 
         }
 
-        /* GLOW-EFFEKT HIER */
+        /* GLOW-EFFEKT */
         .service-card:hover {
             background-color: #EAECEF;
-            /* Subtiler blauer Glow-Effekt */
             box-shadow: 0 0 15px var(--glow-color); 
         }
 
@@ -285,9 +285,8 @@
 
         /* Responsivität */
         @media (max-width: 992px) {
-            /* Ab jetzt auf 992px umschalten */
             .service-grid {
-                grid-template-columns: 1fr; /* Nur eine Spalte auf kleineren Bildschirmen */
+                grid-template-columns: 1fr; /* Eine Spalte auf kleineren Bildschirmen */
             }
         }
         @media (max-width: 768px) {
@@ -347,8 +346,8 @@
     <section id="ueber-uns" class="content-section">
         <h2>HYRA. Ihr lokaler Webdesign-Partner.</h2>
         <div class="text-block">
-            <p>Wir von **HYRA Webdesign** aus Hürth haben es uns zur Aufgabe gemacht, lokalen Unternehmen den Einstieg in die digitale Welt so effizient wie möglich zu gestalten – **professionell, unkompliziert und zu fairen Konditionen.**</p>
-            <p>Wir verstehen die Bedürfnisse von lokalen Dienstleistern. Bei uns erhalten Sie nicht nur eine Website, sondern eine **maßgeschneiderte digitale Lösung**, die Ihre Besucher überzeugt und in zahlende Kunden verwandelt. Setzen Sie auf Qualität und Geschwindigkeit.</p>
+            <p>Wir von HYRA Webdesign aus Hürth haben es uns zur Aufgabe gemacht, lokalen Unternehmen den Einstieg in die digitale Welt so effizient wie möglich zu gestalten – **professionell, unkompliziert und zu fairen Konditionen.**</p>
+            <p>Wir verstehen die Bedürfnisse von lokalen Dienstleistern. Bei uns erhalten Sie nicht nur eine Website, sondern eine maßgeschneiderte digitale Lösung, die Ihre Besucher überzeugt und in zahlende Kunden verwandelt. Setzen Sie auf Qualität und Geschwindigkeit.</p>
         </div>
     </section>
 
@@ -358,17 +357,17 @@
             
             <div class="service-card">
                 <h3>Super Custom Design</h3>
-                <p>Keine Templates. Wir entwickeln jede Website von Grund auf neu – **minimalistisch, modern** und 100% auf Ihre lokale Marke abgestimmt. Einzigartig und professionell.</p>
+                <p>Keine Templates. Wir entwickeln jede Website von Grund auf neu – minimalistisch, modern und 100% auf Ihre lokale Marke abgestimmt. Einzigartig und professionell.</p>
             </div>
             
             <div class="service-card">
-                <h3>Kostenloses Hosting (1. Jahr)</h3>
-                <p>Volle Leistung ohne Mehrkosten. Wir übernehmen das **Hosting im ersten Jahr kostenlos** für Sie. So starten Sie sofort und entlasten Ihr Anfangsbudget.</p>
+                <h3>Kostenloses Hosting (Immer)</h3>
+                <p>Volle Leistung ohne Mehrkosten. Wir übernehmen das Hosting **dauerhaft kostenlos** für Sie. So fallen keine laufenden Kosten für den Webspace an.</p>
             </div>
             
             <div class="service-card">
                 <h3>Extrem schnell & günstig</h3>
-                <p>Dank unserer optimierten Prozesse ist Ihre professionelle Website **in kürzester Zeit online**. Qualität muss kein Vermögen kosten – wir sind Ihr günstiger Partner.</p>
+                <p>Dank unserer optimierten Prozesse ist Ihre professionelle Website in kürzester Zeit online. Qualität muss kein Vermögen kosten – wir sind Ihr günstiger Partner.</p>
             </div>
 
         </div>
