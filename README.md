@@ -12,13 +12,13 @@
         /* Grundschriftart Inter für eine moderne und klare Optik */
         body {
             font-family: 'Inter', sans-serif;
-            /* Hintergrund auf rein WEISS gesetzt, um als sauberer Trennbalken zu fungieren */
+            /* Hintergrund auf rein WEISS gesetzt */
             @apply bg-white text-gray-800; 
         }
-        /* Haupt-CTA-Button Stil - Etwas größer und mit sauberem Schatten */
+        /* Haupt-CTA-Button Stil */
         .btn-cta {
             @apply inline-block px-12 py-4 bg-indigo-600 text-white text-xl font-extrabold rounded-xl shadow-2xl shadow-indigo-500/50
-                   transform hover:scale-[1.03] hover:bg-indigo-700
+                   transform hover:scale-[1.03] hover:hover:bg-indigo-700
                    transition-all duration-300 ease-in-out
                    focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-70;
         }
@@ -30,15 +30,11 @@
         }
         /* Stil für Überschriften */
         h1, h2, h3 {
-            @apply font-black text-gray-900; /* Verwendung von 'black' (900) für maximale Wirkung */
+            @apply font-black text-gray-900; 
         }
-        /* Abstände für Sektionen - Sehr große vertikale Abstände, die den weißen Body-Hintergrund für die Trennung freigeben */
+        /* Basis-Sektionen haben nur horizontalen Abstand, vertikaler Abstand wird individuell per py-* gesetzt */
         section {
-            @apply py-32 px-4 md:px-12 lg:px-20; 
-        }
-        /* Spezieller Stil für Inhalts-Sektionen, um sie als "Blöcke" darzustellen */
-        .content-block {
-            @apply bg-gray-50 shadow-xl rounded-2xl;
+            @apply px-4 md:px-12 lg:px-20; 
         }
     </style>
 </head>
@@ -76,12 +72,11 @@
         </ul>
     </div>
 
-    <!-- Hero Section (Content Block 1) -->
-    <!-- bg-indigo-50: HINZUGEFÜGT für hellblauen Hintergrund -->
-    <section id="home" class="content-block text-center pt-32 pb-40 bg-indigo-50">
+    <!-- Hero Section (Content Block 1) - Jetzt full-width und hellblau -->
+    <section id="home" class="text-center bg-indigo-50 py-32 md:py-40">
         <div class="container mx-auto px-4">
-            <!-- H1 wurde auf zwei Schlagworte gekürzt -->
-            <h1 class="text-6xl md:text-8xl mb-6 leading-tight max-w-5xl mx-auto">
+            <!-- H1 wurde vergrößert: text-7xl auf Mobile, text-9xl auf Desktop -->
+            <h1 class="text-7xl md:text-9xl mb-6 leading-tight max-w-5xl mx-auto">
                 Digital. <br class="hidden md:inline">
                 <span class="text-indigo-600">Erfolgreich.</span>
             </h1>
@@ -95,9 +90,8 @@
         </div>
     </section>
 
-    <!-- Wer ist HYRA? (About) Section - (Content Block 2) -->
-    <!-- MT-12 sorgt für den WEISSEN Trennbalken (Body-Hintergrund) -->
-    <section id="about" class="content-block mt-12">
+    <!-- Wer ist HYRA? (About) Section - Hellgrau, full-width, großer vertikaler Abstand -->
+    <section id="about" class="bg-gray-100 mt-12 py-40">
         <div class="container mx-auto px-4 max-w-4xl">
             <h2 class="text-3xl md:text-5xl mb-12 text-center">👋 Wer ist HYRA? Unsere Philosophie.</h2>
             <div class="text-xl leading-relaxed space-y-8 text-gray-700 text-center">
@@ -114,9 +108,8 @@
         </div>
     </section>
 
-    <!-- Was ich mache (Value Proposition) Section (Content Block 3) -->
-    <!-- MT-12 sorgt für den WEISSEN Trennbalken (Body-Hintergrund) -->
-    <section id="services" class="content-block mt-12">
+    <!-- Was ich mache (Value Proposition) Section - Weiß, full-width -->
+    <section id="services" class="bg-white mt-12 py-32">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl md:text-5xl mb-16">Ihre unschlagbaren Vorteile mit HYRA Webdesign</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -160,14 +153,14 @@
         </div>
     </section>
 
-    <!-- Call-to-Action / Kontakt Section (Content Block 4) -->
-    <!-- MT-12 sorgt für den WEISSEN Trennbalken (Body-Hintergrund) -->
-    <section id="contact" class="content-block mt-12">
+    <!-- Call-to-Action / Kontakt Section - Voller Indigo-Kasten -->
+    <section id="contact" class="bg-indigo-600 text-white mt-12 py-36">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-5xl mb-12">Jetzt Ihr lokales Business online bringen.</h2>
-            <p class="text-xl mb-14 max-w-2xl mx-auto text-gray-700">
+            <p class="text-xl mb-14 max-w-2xl mx-auto text-indigo-100">
                 Lassen Sie uns unverbindlich über Ihr Projekt sprechen. Schreiben Sie uns, und wir legen sofort los.
             </p>
+            <!-- Kontaktformular, Hintergrund ist hier weiß, damit es sich abhebt -->
             <div class="max-w-xl mx-auto bg-white p-8 md:p-10 rounded-2xl shadow-3xl border border-indigo-100 text-gray-800">
                 <form action="#" method="POST" class="space-y-6 text-left">
                     <div>
@@ -186,14 +179,14 @@
                     <button type="submit" class="w-full btn-cta">Nachricht an HYRA senden</button>
                 </form>
             </div>
-            <p class="mt-8 text-sm text-gray-500">
-                Oder schreiben Sie uns direkt: <a href="mailto:maltenow2@gmail.com" class="underline hover:text-indigo-600 transition duration-300 font-semibold">maltenow2@gmail.com</a>
+            <p class="mt-8 text-sm text-indigo-100">
+                Oder schreiben Sie uns direkt: <a href="mailto:maltenow2@gmail.com" class="underline hover:text-white transition duration-300 font-semibold">maltenow2@gmail.com</a>
             </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-10 px-4 mt-12"> <!-- Auch hier etwas Abstand zum Block darüber -->
+    <footer class="bg-gray-800 text-white py-10 px-4 mt-12">
         <div class="container mx-auto text-center md:flex md:justify-between md:items-center">
             <p class="mb-4 md:mb-0 text-sm">&copy; 2025 HYRA Webdesign. Malte, Webdesigner aus Hürth.</p>
             <ul class="flex justify-center space-x-6 text-sm">
@@ -228,5 +221,4 @@
 
 </body>
 </html>
-
 
