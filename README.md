@@ -1,4 +1,5 @@
 
+
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -92,6 +93,7 @@
             color: var(--primary-color);
             letter-spacing: -2px;
         }
+        /* Das ist der stilisierte, hervorgehobene Buchstabe 'H' */
         .logo span {
             color: var(--accent-color); 
             font-size: 1.8rem;
@@ -211,7 +213,6 @@
         }
 
         .text-block p strong {
-            /* Text-Hervorhebung durch strong beibehalten, aber ** entfernt */
             color: var(--primary-color);
         }
 
@@ -326,7 +327,7 @@
 <body>
 
     <header>
-        <div class="logo"><span>H</span>YRA</div>
+        <div class="logo"><span>H</span></div>
         <nav>
             <a href="#ueber-uns">Über uns</a>
             <a href="#leistungen">Leistungen</a>
