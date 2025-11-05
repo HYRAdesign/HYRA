@@ -1,401 +1,437 @@
-
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HYRA Webdesign – Ihr Partner für moderne Websites in Hürth</title>
-    <link rel="icon" type="image/png" href="hyra logo.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    
+    <title>Kinder Tipptrainer – 10-Finger Methode</title>
     <style>
-        /* Farbschema und Variablen */
-        :root {
-            --primary-color: #2C3E50; /* Dunkles, professionelles Graublau */
-            --accent-color: #3498DB; /* Helles Akzentblau für CTA */
-            --text-color: #333333;
-            --light-gray: #F4F6F8; /* Sehr helles Grau */
-            --background-color: #ffffff;
-            --font-family: 'Inter', sans-serif;
-            --glow-color: rgba(52, 152, 219, 0.4); /* Leuchtendes Blau, leicht transparent */
-        }
-
-        /* Basis-Styling und Resets */
-        * {
+        /* --- Allgemeine Stile (Unverändert) --- */
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background: #f2f8ff;
+            color: #333;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        body {
-            font-family: var(--font-family);
-            color: var(--text-color);
-            background-color: var(--background-color);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* Typografie */
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800; 
-            line-height: 1.1;
-            margin-bottom: 0.5em;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 0.8em;
-            text-align: center;
-            color: var(--primary-color);
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5em;
-            color: var(--primary-color);
-        }
-
-        p {
-            font-size: 1.05rem;
-            color: #555;
-            margin-bottom: 1.5em;
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Header und Navigation */
         header {
+            background: #4da6ff;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .lesson-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .visible {
+            display: flex;
+        }
+        .text-display {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            width: 100%;
+            text-align: left;
+            font-size: 1.4em;
+            min-height: 60px;
+            word-wrap: break-word;
+            line-height: 1.5;
+        }
+        .correct { color: green; }
+        .incorrect { color: red; background-color: #ffdddd; }
+        .current { background-color: yellow; border-radius: 2px; }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-top: 10px;
+            font-size: 1.3em;
+            border-radius: 10px;
+            border: 2px solid #4da6ff;
+            padding: 10px;
+            resize: none;
+            font-family: monospace;
+        }
+        .info-panel {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .progress {
+            margin-top: 20px;
+            width: 100%;
+            height: 25px;
+            background: #d9d9d9;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            line-height: 25px;
+            color: #333;
+            font-weight: bold;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #4da6ff;
+            width: 0%;
+            transition: width 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 10px;
+        }
+        .progress-text {
+            position: relative;
+            z-index: 1;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        button {
+            background: #4da6ff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px #3b8ae0;
+        }
+        button:disabled {
+            background: #ccc;
+            box-shadow: 0 4px #999;
+            cursor: not-allowed;
+        }
+        .lesson-list {
+            list-style: none;
+            padding: 0;
+            width: 90%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+        .lesson-item {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background-color: var(--background-color);
-            border-bottom: 1px solid var(--light-gray);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            cursor: pointer;
+            border-left: 5px solid #ccc;
         }
+        .lesson-item.unlocked { border-left-color: #4da6ff; }
+        .lesson-item.completed { border-left-color: green; }
 
-        /* LOGO-Styling */
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            letter-spacing: -2px;
-        }
-        .logo span {
-            color: var(--accent-color); 
-            font-size: 1.8rem;
-        }
-
-        nav a {
-            margin-left: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-color);
-            padding: 5px 0;
-            position: relative;
-        }
-
-        /* Underline-Effekt für Navigation */
-        nav a:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-        nav a:hover:after {
-            width: 100%;
-        }
-
-        .cta-nav {
-            background-color: var(--accent-color);
-            color: white !important;
-            padding: 8px 18px;
-            border-radius: 4px;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-left: 30px;
-            border: none;
-        }
-        .cta-nav:hover {
-            background-color: #2980B9;
-            transform: translateY(-1px);
-        }
-        .cta-nav:after {
-            content: none;
-        }
-
-        /* Buttons (CTA) */
-        .button {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 4px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .primary-cta {
-            background-color: var(--accent-color);
-            color: white;
-            border: 2px solid var(--accent-color);
-        }
-
-        .primary-cta:hover {
-            background-color: #2980B9;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .large {
-            font-size: 1.15rem;
-        }
-
-        /* Sektionen allgemein */
-        section {
-            padding: 100px 5%;
-        }
-
-        .content-section {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* Hero Sektion */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            text-align: left;
-            background-color: var(--light-gray);
-            padding-top: 150px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            color: var(--primary-color);
-        }
-
-        .hero h2 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #777;
-            margin-bottom: 2.5em;
-            text-align: left;
-        }
-
-
-        /* Über uns Sektion */
-        #ueber-uns h2 {
-            text-align: left;
-            margin-bottom: 0.5em;
-            font-size: 2.5rem;
-        }
-
-        .text-block p strong {
-            /* Text-Hervorhebung durch strong beibehalten, aber ** entfernt */
-            color: var(--primary-color);
-        }
-
-        /* Leistungen Sektion (Grid) */
-        .services {
-            background-color: var(--background-color); 
-            text-align: center;
-            border-top: 1px solid var(--light-gray);
-        }
-        
-        /* 3 Spalten nebeneinander */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .service-card {
-            background-color: var(--light-gray);
-            padding: 40px; 
-            border-radius: 8px;
-            text-align: left;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            min-height: 250px; 
-        }
-
-        /* GLOW-EFFEKT */
-        .service-card:hover {
-            background-color: #EAECEF;
-            box-shadow: 0 0 15px var(--glow-color); 
-        }
-
-        /* CTA Sektion (Kontakt) */
-        .cta-section {
-            text-align: center;
-            padding: 120px 5%;
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .cta-section h2 {
-            color: white;
-            font-size: 2.8rem;
-        }
-
-        .cta-section p {
-            font-size: 1.3rem;
-            margin-bottom: 50px;
-            color: #EAECEF;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--light-gray);
-            color: #888;
-            background-color: var(--light-gray);
-        }
-
-        footer a {
-            color: #888;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsivität */
-        @media (max-width: 992px) {
-            .service-grid {
-                grid-template-columns: 1fr; /* Eine Spalte auf kleineren Bildschirmen */
-            }
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .hero {
-                text-align: center;
-            }
-            .hero h2 {
-                text-align: center;
-            }
-            header {
-                flex-direction: column;
-                padding-bottom: 10px;
-            }
-            nav {
-                margin-top: 15px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav a {
-                margin: 5px 10px;
-            }
-            .cta-nav {
-                margin-left: 10px;
-            }
-            #ueber-uns h2 {
-                text-align: center;
-            }
-            .service-card {
-                min-height: auto;
-            }
+        /* --- STIL für das Tastatur-Bild (für die Lektionsansicht) --- */
+        .keyboard-image {
+            width: 100%; 
+            max-width: 700px; 
+            height: auto;
+            margin-top: 30px; 
+            border: none; 
+            box-shadow: none; 
         }
     </style>
 </head>
 <body>
+    <header>Kinder Tipptrainer – 10-Finger Methode</header>
 
-    <header>
-        <div class="logo"><span>H</span>YRA</div>
-        <nav>
-            <a href="#ueber-uns">Über uns</a>
-            <a href="#leistungen">Leistungen</a>
-            <a href="#kontakt" class="cta-nav">Projekt starten</a>
-        </nav>
-    </header>
+    <div id="lesson-selection" class="lesson-container visible">
+        <h2>Wähle deine Lektion:</h2>
+        <ul class="lesson-list" id="lessonList">
+            </ul>
+    </div>
 
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Lokale Präsenz. Digitale Stärke.</h1>
-            <h2>Die Webdesign-Agentur für lokale Businesses in Hürth. Extrem schnell und budgetfreundlich.</h2>
-            <p>HYRA liefert minimalistische und moderne Websites, die speziell für Friseure, kleine Läden und Dienstleister entwickelt wurden, um sofort mehr Kunden zu gewinnen.</p>
-            <a href="#kontakt" class="button primary-cta large">Kostenlose Erstberatung</a>
+    <div id="typing-area" class="lesson-container">
+        <h2 id="lessonTitle"></h2>
+        <div class="text-display" id="displayText"></div>
+        <textarea id="typingInput" placeholder="Tippe den Text hier..." autofocus></textarea>
+        <div class="info-panel">
+            <span>Genauigkeit: <strong id="accuracyDisplay">0%</strong></span>
+            <span>Fehler: <strong id="errorCount">0</strong></span>
+            <span>WPM: <strong id="wpmDisplay">0</strong></span>
         </div>
-    </section>
-
-    <section id="ueber-uns" class="content-section">
-        <h2>HYRA. Ihr lokaler Webdesign-Partner.</h2>
-        <div class="text-block">
-            <p>Wir von HYRA Webdesign aus Hürth haben es uns zur Aufgabe gemacht, lokalen Unternehmen den Einstieg in die digitale Welt so effizient wie möglich zu gestalten – **professionell, unkompliziert und zu fairen Konditionen.**</p>
-            <p>Wir verstehen die Bedürfnisse von lokalen Dienstleistern. Bei uns erhalten Sie nicht nur eine Website, sondern eine maßgeschneiderte digitale Lösung, die Ihre Besucher überzeugt und in zahlende Kunden verwandelt. Setzen Sie auf Qualität und Geschwindigkeit.</p>
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text" id="progressText">0%</div>
         </div>
-    </section>
-
-    <section id="leistungen" class="content-section services">
-        <h2>Was HYRA Ihnen garantiert.</h2>
-        <div class="service-grid">
-            
-            <div class="service-card">
-                <h3>Super Custom Design</h3>
-                <p>Keine Templates. Wir entwickeln jede Website von Grund auf neu – minimalistisch, modern und 100% auf Ihre lokale Marke abgestimmt. Einzigartig und professionell.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Kostenloses Hosting (Immer)</h3>
-                <p>Volle Leistung ohne Mehrkosten. Wir übernehmen das Hosting **dauerhaft kostenlos** für Sie. So fallen keine laufenden Kosten für den Webspace an.</p>
-            </div>
-            
-            <div class="service-card">
-                <h3>Extrem schnell & günstig</h3>
-                <p>Dank unserer optimierten Prozesse ist Ihre professionelle Website in kürzester Zeit online. Qualität muss kein Vermögen kosten – wir sind Ihr günstiger Partner.</p>
-            </div>
-
+        <div class="buttons">
+            <button id="backBtn">Zurück zur Auswahl</button>
+            <button id="resetBtn">Zurücksetzen</button>
+            <button id="nextLessonBtn" disabled>Nächste Lektion</button>
         </div>
-    </section>
-
-    <section id="kontakt" class="cta-section">
-        <h2>Starten Sie jetzt Ihre Sichtbarkeit.</h2>
-        <p>Kontaktieren Sie uns unverbindlich. Wir freuen uns darauf, Ihr lokales Geschäft digital zu stärken!</p>
-        <a href="mailto:hymo.inf@gmail.com?subject=Anfrage%20Website%20HYRA%20Webdesign" class="button primary-cta large">Kontakt zu HYRA aufnehmen</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 HYRA Webdesign | Ihr Partner in Hürth.</p>
-        <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
-    </footer>
+        <img 
+            src="https://www.tippenakademie.de/app/source/public/images/intro/keyboard-colors-new3.png" 
+            alt="Farbige Tastatur zur 10-Finger-Methode" 
+            class="keyboard-image"
+        >
+    </div>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // --- Lektionsdaten (JETZT 10 Lektionen) ---
+        const lessons = [
+            { title: 'Lektion 1: Grundtasten (Mitte)', text: 'asdf jklö asdf jklö fjdksl fjdksl', difficulty: 'Leicht' },
+            { title: 'Lektion 2: E und I', text: 'drei eier fiel ein Lied lies sie', difficulty: 'Leicht' },
+            { title: 'Lektion 3: U und R', text: 'ruhe turm ruf und du nur rute', difficulty: 'Mittel' },
+            { title: 'Lektion 4: T und Z', text: 'zwei tanz Zeit satz jetzt zum Netz', difficulty: 'Mittel' },
+            { title: 'Lektion 5: G und H', text: 'gehe hoch Haus geht gern hast du', difficulty: 'Mittel' },
+            { title: 'Lektion 6: B und N', text: 'bin ganz bunt bene nimm nahm nach', difficulty: 'Mittel' },
+            { title: 'Lektion 7: W und O', text: 'wo was wolke oft Sonne oben Ort', difficulty: 'Schwer' },
+            { title: 'Lektion 8: Satzzeichen', text: 'Er fragt: "Wer bist du?" Ich antworte: "Ich bin\'s!"', difficulty: 'Schwer' },
+            { title: 'Lektion 9: Zahlen & Groß', text: 'Heute ist der 1. Mai 2025. Wir brauchen 10 Stühle.', difficulty: 'Experte' },
+            { title: 'Lektion 10: Letzte Prüfung', text: 'Ein Fuchs geht im Wald spazieren. Plötzlich hört er ein Geräusch. Er versteckt sich schnell hinter einem Baum. Das ist das Ende der Geschichte.', difficulty: 'Meister' },
+        ];
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // --- DOM-Elemente & Zustandsvariablen (Unverändert) ---
+        const lessonSelection = document.getElementById('lesson-selection');
+        const typingArea = document.getElementById('typing-area');
+        const lessonList = document.getElementById('lessonList');
+        const lessonTitle = document.getElementById('lessonTitle');
+        const displayText = document.getElementById('displayText');
+        const typingInput = document.getElementById('typingInput');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const accuracyDisplay = document.getElementById('accuracyDisplay');
+        const errorCountDisplay = document.getElementById('errorCount');
+        const wpmDisplay = document.getElementById('wpmDisplay');
+        const resetBtn = document.getElementById('resetBtn');
+        const nextLessonBtn = document.getElementById('nextLessonBtn');
+        const backBtn = document.getElementById('backBtn');
+
+        let currentLessonIndex = 0;
+        let lessonText = '';
+        let startTime = null;
+        let totalTypedChars = 0;
+        let totalErrors = 0;
+        let typingInProgress = false;
+        let lessonProgress = loadProgress();
+
+        const ACCURACY_THRESHOLD = 90;
+
+        // --- Hauptfunktionen (Unverändert) ---
+
+        function loadProgress() {
+            const progress = localStorage.getItem('typingTrainerProgress');
+            if (progress) {
+                return JSON.parse(progress);
+            }
+            // Erstellt den Startfortschritt für 10 Lektionen
+            return lessons.map((_, index) => ({
+                unlocked: index === 0,
+                completed: false,
+                accuracy: 0
+            }));
+        }
+
+        function saveProgress() {
+            localStorage.setItem('typingTrainerProgress', JSON.stringify(lessonProgress));
+            renderLessonList();
+        }
+
+        function showLessonSelection() {
+            typingArea.classList.remove('visible');
+            lessonSelection.classList.add('visible');
+            typingInput.value = '';
+            typingInProgress = false;
+            startTime = null;
+        }
+
+        function startLesson(index) {
+            currentLessonIndex = index;
+            lessonText = lessons[index].text;
+
+            lessonTitle.textContent = lessons[index].title;
+            displayText.innerHTML = formatText(lessonText, '');
+            typingInput.value = '';
+            typingInput.focus();
+            
+            progressBar.style.width = '0%';
+            progressText.textContent = '0%';
+            accuracyDisplay.textContent = '0%';
+            errorCountDisplay.textContent = '0';
+            nextLessonBtn.disabled = true;
+
+            totalTypedChars = 0;
+            totalErrors = 0;
+            startTime = null;
+            typingInProgress = false;
+
+            lessonSelection.classList.remove('visible');
+            typingArea.classList.add('visible');
+        }
+
+        function renderLessonList() {
+            lessonList.innerHTML = '';
+            lessons.forEach((lesson, index) => {
+                const item = document.createElement('li');
+                const progressItem = lessonProgress[index];
+                
+                let statusClass = '';
+                let statusText = '';
+                let statusIcon = '';
+
+                if (progressItem.completed) {
+                    statusClass = 'completed';
+                    statusText = `Abgeschlossen (${progressItem.accuracy}%) 🎉`;
+                    statusIcon = '✅';
+                } else if (progressItem.unlocked) {
+                    statusClass = 'unlocked';
+                    statusText = `Fortschritt: ${progressItem.accuracy}%`;
+                    statusIcon = '🔓';
+                } else {
+                    statusClass = 'locked';
+                    statusText = 'Gesperrt';
+                    statusIcon = '🔒';
+                }
+
+                item.classList.add('lesson-item', statusClass);
+                item.innerHTML = `
+                    <span>${statusIcon} ${lesson.title} (${lesson.difficulty})</span>
+                    <span style="font-size:0.9em;">${statusText}</span>
+                `;
+                
+                if (progressItem.unlocked) {
+                    item.addEventListener('click', () => startLesson(index));
+                }
+
+                lessonList.appendChild(item);
             });
+        }
+
+        function formatText(original, typed) {
+            let output = '';
+            for (let i = 0; i < original.length; i++) {
+                const char = original[i];
+                let spanClass = '';
+
+                if (i < typed.length) {
+                    if (typed[i] === char) {
+                        spanClass = 'correct';
+                    } else {
+                        spanClass = 'incorrect';
+                    }
+                }
+
+                if (i === typed.length) {
+                    spanClass += ' current';
+                }
+
+                output += `<span class="${spanClass}">${char === ' ' ? '•' : char}</span>`;
+            }
+            return output;
+        }
+
+        function calculateStats() {
+            const typed = typingInput.value;
+            const original = lessonText;
+            let correctChars = 0;
+            let currentErrors = 0;
+
+            for (let i = 0; i < typed.length; i++) {
+                if (i < original.length) {
+                    if (typed[i] === original[i]) {
+                        correctChars++;
+                    } else {
+                        currentErrors++;
+                    }
+                }
+            }
+            
+            totalTypedChars = typed.length; 
+            totalErrors = currentErrors; 
+
+            const accuracy = original.length > 0 
+                ? Math.floor((correctChars / original.length) * 100) 
+                : 100;
+
+            const progress = Math.min(Math.floor((typed.length / original.length) * 100), 100);
+
+            let wpm = 0;
+            if (startTime && typed.length > 0) {
+                const elapsedMinutes = (Date.now() - startTime) / 60000;
+                // WPM = (Anzahl korrekte Zeichen / 5) / (Verstrichene Minuten)
+                wpm = Math.floor((correctChars / 5) / elapsedMinutes); 
+            }
+            
+            displayText.innerHTML = formatText(original, typed);
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `${progress}%`;
+            accuracyDisplay.textContent = `${accuracy}%`;
+            errorCountDisplay.textContent = totalErrors;
+            wpmDisplay.textContent = wpm;
+
+            if (typed.length >= original.length) {
+                typingInput.disabled = true;
+                typingInProgress = false;
+
+                const finalAccuracy = Math.floor((correctChars / original.length) * 100);
+                
+                lessonProgress[currentLessonIndex].accuracy = finalAccuracy;
+                if (finalAccuracy >= ACCURACY_THRESHOLD) {
+                    lessonProgress[currentLessonIndex].completed = true;
+                    if (currentLessonIndex + 1 < lessons.length) {
+                        lessonProgress[currentLessonIndex + 1].unlocked = true;
+                    }
+                    nextLessonBtn.disabled = false;
+                    alert(`Super! Lektion ${currentLessonIndex + 1} abgeschlossen mit ${finalAccuracy}% Genauigkeit!`);
+                } else {
+                    alert(`Leider nur ${finalAccuracy}% Genauigkeit. Du brauchst ${ACCURACY_THRESHOLD}% oder mehr.`);
+                    nextLessonBtn.disabled = true;
+                }
+                saveProgress();
+            }
+        }
+
+        // --- Event Listener (Unverändert) ---
+
+        typingInput.addEventListener('input', () => {
+            if (!typingInProgress && typingInput.value.length > 0) {
+                typingInProgress = true;
+                startTime = Date.now();
+            }
+            calculateStats();
         });
+
+        resetBtn.addEventListener('click', () => {
+            startLesson(currentLessonIndex);
+            typingInput.disabled = false;
+        });
+
+        nextLessonBtn.addEventListener('click', () => {
+            if (currentLessonIndex + 1 < lessons.length) {
+                startLesson(currentLessonIndex + 1);
+                typingInput.disabled = false;
+            } else {
+                alert('Glückwunsch! Du hast alle Lektionen abgeschlossen!');
+                showLessonSelection();
+            }
+        });
+
+        backBtn.addEventListener('click', showLessonSelection);
+
+        // --- Start der Anwendung ---
+        renderLessonList();
+        showLessonSelection(); 
+
     </script>
 </body>
 </html>
